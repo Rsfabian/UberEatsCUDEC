@@ -13,14 +13,14 @@ db.collection ("platillos").onSnapshot ((datos) => {
         agregarALista (registro.doc.data(), registro.doc.id);
      }
   });
-  var elems = document.querySelectorAll ('select');
-  M.FormSelect. init(elems);
+  var elems = document.querySelectorAll('select');
+  M.FormSelect.init(elems);
 
 });
 function agregarALista(platillos,id){
-  contenidoLista += `<option value=`${id}`>
+  contenidoLista += `<option value='${id}'>   
   ${platillos.nombre}
-  </option>`;
+  </option>`; 
   document.getElementById("listaPlatillos").innerHTML = contenidoLista;
 }
   M.AutoInit();
