@@ -24,3 +24,38 @@ function agregarALista(platillos,id){
   document.getElementById("listaPlatillos").innerHTML = contenidoLista;
 }
   M.AutoInit();
+
+  document.getElementById("btnUbicacion").addEventListener("click", function() {
+    if (navigator.geoLocatioin) {
+      navigator.geolocation.getCurrentPosition(exito, error);   
+  }
+  });
+  
+function exito(posicion){
+  let latitud = posicion.coorrds.latitue;
+  let longitud = posicion.coord.longitud;
+  fetch(``)
+}
+
+
+
+  const formularioAgregar = document. querySelector("form");
+formularioAgregar. addEventListener("submit", (e) => {
+   e.preventDefault();
+const platilloNuevo = {
+    nombre: formularioAgregar.title.value,
+    ingredientes: formularioAgregar.ingredients.value,
+    precio: formularioAgregar.price.value
+}
+
+db.collection("platillos").add(platilloNuevo)
+.catch((error) => {
+    console.log(error);
+    alert("Error al agregar platillo");
+ }
+ );
+ formularioAgregar.title.value = "";
+ formularioAgregar.ingredients.value = "";
+ formularioAgregar.price.value = "";
+ alert("Platillo agregado");
+});
