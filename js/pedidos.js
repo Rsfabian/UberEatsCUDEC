@@ -30,11 +30,23 @@ function agregarALista(platillos,id){
       navigator.geolocation.getCurrentPosition(exito, error);   
   }
   });
+
   
 function exito(posicion){
-  let latitud = posicion.coorrds.latitue;
+  let latitud = posicion.coords.latitue;
   let longitud = posicion.coord.longitud;
-  fetch(``)
+  fetch(`https://nominatim.openstreetmap.org/reverse?lat=${latitud}&lon{longitud}&=format=json`{
+    headers:{
+      'User-Agent': 'error (rsfabian1604@gmail.com)'
+    }
+  })
+
+  .then(respuesta => respuesta.json())
+  .then (data => {
+    let ciudad = data.addrees.city;
+    let pais = data.addrees.country;
+    document.getElementById("direccion").value = `${ciudad}, ${pais}`;
+    } )
 }
 
 
