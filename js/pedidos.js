@@ -35,7 +35,7 @@ function agregarALista(platillos,id){
 function exito(posicion){
   let latitud = posicion.coords.latitue;
   let longitud = posicion.coord.longitud;
-  fetch(`https://nominatim.openstreetmap.org/reverse?lat=${latitud}&lon{longitud}&=format=json`{
+  fetch(`https://nominatim.openstreetmap.org/reverse?lat=${latitud}&lon{longitud}&=format=json`,{
     headers:{
       'User-Agent': 'error (rsfabian1604@gmail.com)'
     }
@@ -46,7 +46,14 @@ function exito(posicion){
     let ciudad = data.addrees.city;
     let pais = data.addrees.country;
     document.getElementById("direccion").value = `${ciudad}, ${pais}`;
+    var map = L.map ('map').setView([latitud, longitud],13);
+    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',{
+      maxZoom: 19,
+      attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+    }).addTo(map);
+    var marker = L.marker([51.5, -0.09]).addTo(map);
     } )
+    .catch(error => console.error(error));
 }
 
 

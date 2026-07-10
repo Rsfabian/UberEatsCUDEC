@@ -9,6 +9,15 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link type="text/css" href="/css/styles.css" rel="stylesheet">
   <script type="text/javascript" src="/js/materialize.min.js"></script>
+  <link rel="stylesheet" href="https://unpk.com/leafle@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+        crossorigin=""/>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaafLet.js"
+       integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VH+kNiyxNV1lvTLZBo="
+       crossorigin=""></script>        
+  <style>
+    #mapa {height:180px; }
+  </style>
 </head>
 <body class="grey lighten-4">
 
@@ -55,6 +64,7 @@
       </div>
     </form>
     <button id="btnUbicacion">Ubicacion</button>
+  </div id="mapa"></div>
   </div>
 <script src="https://www.gstatic.com/firebasejs/6.0.1/firebase-app.js"
 ></script>
